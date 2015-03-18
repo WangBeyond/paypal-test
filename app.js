@@ -23,7 +23,7 @@ try {
 
 routes.init(config);
 
-app.set('port', process.env.PORT || 8000);
+app.set('port', process.env.PORT || 5000);
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -42,6 +42,7 @@ app.use('/', routes);
 app.post('/create', routes.create);
 app.post('/execute', routes.execute);
 app.get('/cancel', routes.cancel);
+
 app.get('/execute', function(req, res){
     var payment_detail = JSON.stringify(payment, null, 2);
     res.render('execute', {payment_detail: payment_detail});

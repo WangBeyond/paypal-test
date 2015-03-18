@@ -24,23 +24,24 @@ router.init = function(c){
 };
 
 router.create = function(req, res){
-  var payment = {
-  "intent": "sale",
-  "payer": {
-    "payment_method": "paypal"
-  },
-  "redirect_urls": {
-    "return_url": "https://localhost:8000/confirm",
-    "cancel_url": "https://localhost:8000/cancel"
-  },
-  "transactions": [{
-    "amount": {
-      "total": "1.00",
-      "currency": "USD"
-    },
-    "description": "My awesome payment"
-  }]
-};
+	console.log(req.param("amount"));
+	var payment = {
+	  "intent": "sale",
+	  "payer": {
+	    "payment_method": "paypal"
+	  },
+	  "redirect_urls": {
+	    "return_url": "http://yoururl.com/execute",
+	    "cancel_url": "http://yoururl.com/cancel"
+	  },
+	  "transactions": [{
+	    "amount": {
+	      "total": req.param("amount"),
+	      "currency": "USD"
+	    },
+	    "description": "My awesome payment"
+	  }]
+	};
 
   paypal.payment.create(payment, function (error, payment) {
     if (error) {
@@ -49,13 +50,20 @@ router.create = function(req, res){
 	    if(payment.payer.payment_method === 'paypal') {
 	    req.session.paymentId = payment.id;
 	    var redirectUrl;
+
+
 	    for(var i=0; i < payment.links.length; i++) {
 	      var link = payment.links[i];
 	      if (link.method === 'REDIRECT') {
 	        redirectUrl = link.href;
 	      }
 	    }
+	    console.log(4);
+
+
+	    var paymentDetails = JSON.stringify(payment, null, 2);
 	    res.redirect(redirectUrl);
+	    // res.render('create', {paymentDetail: paymentDetail, redirectUrl: redirectUrl})
     }
     }   
   });
@@ -70,7 +78,7 @@ router.execute = function(req, res){
     if (error) {
       console.log(error);
     } else {
-      res.send("Hell yeah!");
+      res.render('execute', { 'payment': payment });
     }
   });
 };
