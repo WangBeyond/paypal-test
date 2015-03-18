@@ -65,7 +65,7 @@ router.create = function(req, res){
 	    console.log(4);
 
 
-	    var paymentDetails = JSON.stringify(payment, null, 2);
+	    var paymentDetail = JSON.stringify(payment, null, 2);
 	    // res.redirect(redirectUrl);
 	    res.render('create', {paymentDetail: paymentDetail, redirectUrl: redirectUrl})
     }
@@ -85,7 +85,10 @@ router.execute = function(req, res){
   var details = { "payer_id": payerId };
   paypal.payment.execute(paymentId, details, function (error, payment) {
     if (error) {
-      console.log(error);
+    	res.render('error', {
+            message: err.message,
+            error: err
+        });
     } else {
       res.render('execute', { 'payment': payment });
     }
