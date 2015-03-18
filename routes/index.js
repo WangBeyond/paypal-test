@@ -1,3 +1,5 @@
+var myUrl = "https://hidden-sierra-5365.herokuapp.com";
+
 var express = require('express');
 var router = express.Router();
 var config = {};
@@ -31,8 +33,8 @@ router.create = function(req, res){
 	    "payment_method": "paypal"
 	  },
 	  "redirect_urls": {
-	    "return_url": "http://yoururl.com/execute",
-	    "cancel_url": "http://yoururl.com/cancel"
+	    "return_url": myUrl + "/execute",
+	    "cancel_url": myUrl + "/cancel"
 	  },
 	  "transactions": [{
 	    "amount": {
