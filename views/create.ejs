@@ -5,10 +5,10 @@
     <link rel="stylesheet" type="text/css" href="/styles/style.css">
   </head>
   	<div>
-  		<form action="<%= redirectUrl %>">
-  			<input type="submit" value="pay">
-  		</form>
-  		<p> <%= paymentDetail %></p>
+  		<a href="<%= redirectUrl %>">
+  			<button type="submit">Redirect</button>
+  		</a>
+  		<pre> <%= paymentDetail %></pre>
 	</div>
  </body>
 </html>

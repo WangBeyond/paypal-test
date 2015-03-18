@@ -55,19 +55,14 @@ router.create = function(req, res){
 	    req.session.paymentId = payment.id;
 	    var redirectUrl;
 
-
 	    for(var i=0; i < payment.links.length; i++) {
 	      var link = payment.links[i];
 	      if (link.method === 'REDIRECT') {
 	        redirectUrl = link.href;
 	      }
 	    }
-	    console.log(4);
-
-
-	    var paymentDetail = JSON.stringify(payment, null, 2);
 	    // res.redirect(redirectUrl);
-	    res.render('create', {paymentDetail: paymentDetail, redirectUrl: redirectUrl})
+	    res.render('create', {paymentDetail: JSON.stringify(payment), redirectUrl: redirectUrl})
     }
     }   
   });
