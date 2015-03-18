@@ -85,7 +85,7 @@ router.execute = function(req, res){
             error: err
         });
     } else {
-      res.render('execute', { 'payment': payment });
+      res.render('execute', { paymentDetail: JSON.stringify(payment) });
     }
   });
 };
