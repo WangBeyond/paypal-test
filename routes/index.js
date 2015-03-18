@@ -5,6 +5,8 @@ var router = express.Router();
 var config = {};
 var paypal = require('paypal-rest-sdk');
 
+var test = true;
+
 /* GET home page. */
 
 router.get('/confirm', function(req, res){
@@ -64,8 +66,8 @@ router.create = function(req, res){
 
 
 	    var paymentDetails = JSON.stringify(payment, null, 2);
-	    res.redirect(redirectUrl);
-	    // res.render('create', {paymentDetail: paymentDetail, redirectUrl: redirectUrl})
+	    // res.redirect(redirectUrl);
+	    res.render('create', {paymentDetail: paymentDetail, redirectUrl: redirectUrl})
     }
     }   
   });
@@ -74,6 +76,11 @@ router.create = function(req, res){
 router.execute = function(req, res){
   var paymentId = req.session.paymentId;
   var payerId = req.param('PayerID');
+
+  if(test){
+  	console.log(paymentId);
+  	console.log(payerId);
+  }
  
   var details = { "payer_id": payerId };
   paypal.payment.execute(paymentId, details, function (error, payment) {
