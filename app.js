@@ -40,7 +40,7 @@ app.use(session({secret: 'keyboard'}));
 
 app.use('/', routes);
 app.post('/create', routes.create);
-app.post('/execute', routes.execute);
+app.get('/execute', routes.execute);
 app.get('/cancel', routes.cancel);
 
 app.get('/execute', function(req, res){

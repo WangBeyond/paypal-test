@@ -72,6 +72,9 @@ router.execute = function(req, res){
   var paymentId = req.session.paymentId;
   var payerId = req.param('PayerID');
 
+  // paymentId = "PAY-6VW115572K7473016KUEZZMY";
+  // payerId = "845SF6UBGGWL8";
+
   if(test){
   	console.log(paymentId);
   	console.log(payerId);
@@ -83,11 +86,11 @@ router.execute = function(req, res){
   paypal.payment.execute(paymentId, details, function (error, payment) {
   	console.log(1);
     if (error) {
-    	res.send(paymentId + " "+ payerId);
-    	// res.render('error', {
-     //        message: err.message,
-     //        error: err
-     //    });
+    	// res.send(paymentId + " "+ payerId);
+    	res.render('error', {
+            message: err.message,
+            error: err
+        });
     } else {
   	console.log(2);
 
