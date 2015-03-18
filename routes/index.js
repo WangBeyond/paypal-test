@@ -78,13 +78,19 @@ router.execute = function(req, res){
   }
  
   var details = { "payer_id": payerId };
+  	console.log(0);
+
   paypal.payment.execute(paymentId, details, function (error, payment) {
+  	console.log(1);
     if (error) {
-    	res.render('error', {
-            message: err.message,
-            error: err
-        });
+    	res.send(paymentId + " "+ payerId);
+    	// res.render('error', {
+     //        message: err.message,
+     //        error: err
+     //    });
     } else {
+  	console.log(2);
+
       res.render('execute', { paymentDetail: JSON.stringify(payment) });
     }
   });
