@@ -8,51 +8,16 @@
     <div id="content" class="container">
 
       <img src="/images/iphone6.jpg"></img>
+      <p>Price: 2.00 USD</p>
+        <br>
 
       <form method="get" action="/create">
         <input type="hidden" name="method" value="paypal">
         <input type="hidden" name="amount" id="amount" value="2.00">
         <input type="hidden" name="currency" id="currency" value="USD">
-<!--         <div class="form-group">
-          <label for="exampleInputEmail1">Amount</label>
-          <input type="text" class="form-control" name="amount" id="amount" placeholder="20.00">
-        </div>
-        <select class="form-control" name="currency" id="currency">
-          <option>USD</option selected>
-          <option>EUR</option>
-          <option>SGD</option>
-        </select> -->
-<!--         <div class="form-group">
-          <label for="exampleInputEmail1">Currency</label>
-          <input type="text" class="form-control" name="currency" id="currency" placeholder="USD">
-        </div> -->
-        <>
-        <br>
-        <button type="submit" id="checkout" class="btn btn-default" disabled>Buy it now</button>
+        <button type="submit" id="checkout" class="btn btn-default">Buy it now</button>
       </form>
     </div>
 
-    <script type="text/javascript" src="/js/libs/jQuery/jquery-2.1.1.js"></script>
-    <script>
-      // $("input").focus(function(){
-      //   if($(this).val().trim())
-      //     $("#checkout").attr("disabled", false);
-      //   else 
-      //     $("#checkout").attr("disabled", true);
-
-      // })
-      // $("input").blur(function(){
-      //   console.log($(this).val().trim());
-      //   if($(this).val().trim()) { //if input is not empty
-      //     $(this).parent().removeClass("has-error");
-      //     $(this).parent().addClass("has-success");
-      //     $("#checkout").attr("disabled", false);
-      //   } else {
-      //     $(this).parent().removeClass("has-success");
-      //     $(this).parent().addClass("has-error");
-      //     $("#checkout").attr("disabled", true);
-      //   }
-      // })
-    </script>
  </body>
 </html>
