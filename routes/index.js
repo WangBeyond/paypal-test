@@ -81,7 +81,7 @@ router.execute = function(req, res){
   var details = { "payer_id": payerId };
 
   paypal.payment.execute(paymentId, details, function (error, payment) {
-  	  console.log(2);
+  	console.log(2);
 
     if (error) {
     	res.render('error', {
