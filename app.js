@@ -39,7 +39,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(session({secret: 'keyboard'}));
 
 app.use('/', routes);
-app.post('/create', routes.create);
+app.get('/create', routes.create);
 app.get('/execute', routes.execute);
 app.get('/cancel', routes.cancel);
 

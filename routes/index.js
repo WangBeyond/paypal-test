@@ -28,6 +28,7 @@ router.init = function(c){
 };
 
 router.create = function(req, res){
+	console.log("21");
 	console.log(req.param("amount"));
 	var payment = {
 	  "intent": "sale",
@@ -94,7 +95,7 @@ router.execute = function(req, res){
     } else {
   	console.log(2);
 
-      res.render('execute', { paymentDetail: JSON.stringify(payment) });
+      res.render('execute', { paymentDetail: payment });
     }
   });
 };
