@@ -95,7 +95,7 @@ router.execute = function(req, res){
     } else {
   	console.log(2);
 
-      res.render('execute', { paymentDetail: payment });
+      res.render('execute', { paymentDetail: JSON.stringify(payment) });
     }
   });
 };
