@@ -8,5 +8,5 @@ On this page, the user can click the "redirect to Paypal" button, before he logi
 Finishing the process in Paypal sandbox domain, the user will return our domain and see some confirmation message in the execute page.
 
 Technology stack:
-Basically, the website uses express.js for the server framework and takes advantage of Paypal Express Checkout API.
+Basically, the website is supported by express.js and Paypal Express Checkout API. In addition, we also import a paypal-express-checkout module of nodejs and it offers us much convenience.
 
