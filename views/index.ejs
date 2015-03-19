@@ -1,14 +1,19 @@
 <html>
   <head>
-  	<title>Check out</title>
+  	<title>Store test</title>
     <link rel="stylesheet" type="text/css" href='/styles/libs/bootstrap.min.css'>
     <link rel="stylesheet" type="text/css" href="/styles/style.css">
   </head>
   <body>
     <div id="content" class="container">
-      <input type="hidden" name="method" value="paypal">
+
+      <img src="/images/iphone6.jpg"></img>
+
       <form method="get" action="/create">
-        <div class="form-group">
+        <input type="hidden" name="method" value="paypal">
+        <input type="hidden" name="amount" id="amount" value="2.00">
+        <input type="hidden" name="currency" id="currency" value="USD">
+<!--         <div class="form-group">
           <label for="exampleInputEmail1">Amount</label>
           <input type="text" class="form-control" name="amount" id="amount" placeholder="20.00">
         </div>
@@ -16,37 +21,38 @@
           <option>USD</option selected>
           <option>EUR</option>
           <option>SGD</option>
-        </select>
+        </select> -->
 <!--         <div class="form-group">
           <label for="exampleInputEmail1">Currency</label>
           <input type="text" class="form-control" name="currency" id="currency" placeholder="USD">
         </div> -->
+        <>
         <br>
-        <button type="submit" id="checkout" class="btn btn-default" disabled>Checkout</button>
+        <button type="submit" id="checkout" class="btn btn-default" disabled>Buy it now</button>
       </form>
     </div>
 
     <script type="text/javascript" src="/js/libs/jQuery/jquery-2.1.1.js"></script>
     <script>
-      $("input").focus(function(){
-        if($(this).val().trim())
-          $("#checkout").attr("disabled", false);
-        else 
-          $("#checkout").attr("disabled", true);
+      // $("input").focus(function(){
+      //   if($(this).val().trim())
+      //     $("#checkout").attr("disabled", false);
+      //   else 
+      //     $("#checkout").attr("disabled", true);
 
-      })
-      $("input").blur(function(){
-        console.log($(this).val().trim());
-        if($(this).val().trim()) { //if input is not empty
-          $(this).parent().removeClass("has-error");
-          $(this).parent().addClass("has-success");
-          $("#checkout").attr("disabled", false);
-        } else {
-          $(this).parent().removeClass("has-success");
-          $(this).parent().addClass("has-error");
-          $("#checkout").attr("disabled", true);
-        }
-      })
+      // })
+      // $("input").blur(function(){
+      //   console.log($(this).val().trim());
+      //   if($(this).val().trim()) { //if input is not empty
+      //     $(this).parent().removeClass("has-error");
+      //     $(this).parent().addClass("has-success");
+      //     $("#checkout").attr("disabled", false);
+      //   } else {
+      //     $(this).parent().removeClass("has-success");
+      //     $(this).parent().addClass("has-error");
+      //     $("#checkout").attr("disabled", true);
+      //   }
+      // })
     </script>
  </body>
 </html>
